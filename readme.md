@@ -12,6 +12,6 @@
 - [x] 데이터 벨리데이션 1차 추가
 - [x] onEqual 기능 구현
 - [x] onReset 기능 구현
-- [ ] onDelete 기능 구현
-- [ ] 리팩토링
+- [x] onDelete 기능 구현
+- [ ] onEqual 리팩토링
 - [ ] 데이터 벨리데이션 2차 추가
