@@ -42,20 +42,16 @@ class Calculator {
     
     switch (this.previousOperation) {
       case "+":
-        result = Number(this.$previousPreview.textContent.split(" ")[0])
-        + Number(this.$currentPreview.textContent)
+        result = this.handlePlus()
         break;
         case "-":
-          result = Number(this.$previousPreview.textContent.split(" ")[0])
-          - Number(this.$currentPreview.textContent)
+          result = this.handleMinus()
         break;
         case "*":
-          result = Number(this.$previousPreview.textContent.split(" ")[0])
-          * Number(this.$currentPreview.textContent)
+          result = this.handleMultiply()
         break;
         case "÷":
-          result = Number(this.$previousPreview.textContent.split(" ")[0])
-          / Number(this.$currentPreview.textContent)
+          result = this.handleDivide()
         break;
       default:
         break;
@@ -63,6 +59,31 @@ class Calculator {
     this.$currentPreview.textContent = result.toString()
     this.$previousPreview.textContent = ""
     this.currentOperation = ""
+  }
+
+  handlePlus() {
+    return (
+      Number(this.$previousPreview.textContent.split(" ")[0])
+        + Number(this.$currentPreview.textContent)
+    )
+  }
+  handleMinus() {
+    return (
+      Number(this.$previousPreview.textContent.split(" ")[0])
+      - Number(this.$currentPreview.textContent)
+    )
+  }
+  handleMultiply() {
+    return (
+      Number(this.$previousPreview.textContent.split(" ")[0])
+      * Number(this.$currentPreview.textContent)
+    )
+  }
+  handleDivide() {
+    return (
+      Number(this.$previousPreview.textContent.split(" ")[0])
+      / Number(this.$currentPreview.textContent)
+    )
   }
 
   onReset() {
@@ -73,7 +94,7 @@ class Calculator {
   }
 
   onDelete() {
-    if(this.$currentPreview.textContent.length < 1) {
+    if(this.$currentPreview.textContent < 1) {
       return
     }
     this.$currentPreview.textContent = this.$currentPreview.textContent.slice(0, -1)
