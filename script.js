@@ -64,6 +64,14 @@ class Calculator {
     this.$previousPreview.textContent = ""
     this.currentOperation = ""
   }
+
+  onReset() {
+    this.$currentPreview.textContent = ""
+    this.$previousPreview.textContent = ""
+    this.previousOperation = ""
+    this.currentOperation = ""
+  }
+
 }
 
 // 값 표시
@@ -76,6 +84,9 @@ const $minus = document.querySelector('[data-btn-minus]')
 const $multiply = document.querySelector('[data-btn-multiply]')
 const $divide = document.querySelector('[data-btn-divide]')
 const $equal = document.querySelector('[data-btn-equal]')
+
+// 리셋, 삭제
+const $reset = document.querySelector('[data-btn-reset]')
 
 // 숫자, 연산
 const $numbers = document.querySelectorAll('[data-btn-number]')
@@ -112,3 +123,5 @@ $operations.forEach(($operation) => {
     }
   })
 })
+
+$reset.addEventListener("click", (e) => cal.onReset())
